@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}M's Jewellery Store{% endblock %}</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="{% static 'images/favicon.ico' %}" sizes="any">
+  <link rel="icon" type="image/png" href="{% static 'images/favicon.png' %}">
+  <link rel="apple-touch-icon" href="{% static 'images/apple-touch-icon.png' %}">
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif'],
+          },
+          colors: {
+            gold: { DEFAULT: '#c8962c', light: '#e6c36a', dark: '#9a7014' },
+            silver: '#b5b5b5',
+            pearl: '#f8f6f1',
+            ink: '#1a1a1a',
+          },
+        },
+      },
+    }
+  </script>
+</head>
+<body class="min-h-screen flex flex-col bg-white text-ink font-sans">
+
+  <!-- Navbar -->
+  <header class="bg-white">
+    <nav class="max-w-6xl mx-auto flex items-center justify-between px-4 py-3">
+
+      <a href="{% url 'home' %}" class="flex items-center gap-3">
+        <img src="{% static 'images/logo.png' %}" alt="M's Jewellery Store logo" class="h-14 w-14 object-contain">
+        <span class="leading-tight">
+          <span class="block text-xl font-bold tracking-wide text-ink">M's Jewellery Store</span>
+          <span class="block text-[10px] tracking-[0.4em] text-gold-dark">TIMELESS ELEGANCE</span>
+        </span>
+      </a>
+
+      <ul class="flex gap-6 text-sm font-medium">
+        <li><a href="{% url 'home' %}" class="hover:text-gold-dark">Home</a></li>
+        <li><a href="#" class="hover:text-gold-dark">Collections</a></li>
+        <li><a href="#" class="hover:text-gold-dark">Custom Order</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Page content -->
+  <main class="flex-grow max-w-6xl mx-auto w-full px-4 py-8">
+    {% block content %}
+    {% endblock %}
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-pearl text-stone-600 text-center text-sm py-6">
+    &copy; 2026 M's Jewellery Store. All rights reserved.
+  </footer>
+
+</body>
+</html>

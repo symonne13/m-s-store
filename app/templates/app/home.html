@@ -1,0 +1,103 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- Hero -->
+<section id="home" class="scroll-mt-20 bg-pearl">
+  <div class="max-w-6xl mx-auto grid items-center gap-12 px-6 py-16 md:grid-cols-2 md:py-24">
+
+    <div>
+      <p class="text-xs font-medium tracking-[0.3em] text-gold-dark">TIMELESS BEAUTY · EVERYDAY LUXURY</p>
+      <h2 class="mt-5 text-4xl font-semibold leading-tight md:text-5xl">
+        Jewellery That Makes Every Moment Shine
+      </h2>
+      <p class="mt-5 max-w-md text-stone-600">
+        Discover elegant pieces designed to celebrate your style, your story and your special moments.
+      </p>
+      <a href="#collections"
+         class="mt-8 inline-block rounded-full bg-gold-dark px-8 py-3 text-sm font-medium text-white hover:bg-ink">
+        Explore Collections
+      </a>
+    </div>
+
+    <img src="{% static 'images/set1.jpg' %}" alt="Elegant gold jewellery collection"
+         class="aspect-[4/3] w-full rounded-2xl object-cover">
+
+  </div>
+</section>
+
+<!-- Our Story -->
+<section id="about" class="scroll-mt-20 bg-pearl">
+  <div class="max-w-3xl mx-auto px-6 py-20 text-center">
+    <p class="text-xs font-medium tracking-[0.3em] text-gold-dark">OUR STORY</p>
+    <h2 class="mt-4 text-3xl font-semibold md:text-4xl">Beauty in Every Detail</h2>
+    <p class="mt-6 leading-relaxed text-stone-600">
+      At M's Jewellery Store, we believe that jewellery is more than an accessory. It is a reflection of
+      your personality, a celebration of special moments, and a timeless expression of elegance.
+    </p>
+    <p class="mt-4 leading-relaxed text-stone-600">
+      From everyday essentials to statement pieces, our collection is designed to help you shine with
+      confidence and style.
+    </p>
+    <a href="#collections" class="mt-6 inline-block text-sm font-medium text-gold-dark hover:text-ink">
+      Discover Our Collections →
+    </a>
+  </div>
+</section>
+
+<!-- The M's Experience -->
+<section class="bg-white">
+  <div class="max-w-6xl mx-auto px-6 py-20">
+
+    <div class="max-w-2xl mx-auto text-center">
+      <p class="text-xs font-medium tracking-[0.3em] text-gold-dark">THE M'S EXPERIENCE</p>
+      <h2 class="mt-4 text-3xl font-semibold md:text-4xl">More Than Just Jewellery</h2>
+      <p class="mt-4 text-stone-600">Discover the little details that make every piece special.</p>
+    </div>
+
+    <div class="mt-12 grid gap-6 md:grid-cols-3">
+
+      <article class="rounded-2xl bg-pearl p-8">
+        <h3 class="text-lg font-semibold">Timeless Designs</h3>
+        <p class="mt-3 text-sm leading-relaxed text-stone-600">
+          Explore elegant styles that complement your personality and bring a touch of beauty to every occasion.
+        </p>
+      </article>
+
+      <article class="rounded-2xl bg-pearl p-8">
+        <h3 class="text-lg font-semibold">Special Moments</h3>
+        <p class="mt-3 text-sm leading-relaxed text-stone-600">
+          Find thoughtful jewellery gifts to celebrate birthdays, anniversaries and meaningful milestones.
+        </p>
+      </article>
+
+      <article class="rounded-2xl bg-pearl p-8">
+        <h3 class="text-lg font-semibold">Personal Style</h3>
+        <p class="mt-3 text-sm leading-relaxed text-stone-600">
+          Express yourself with pieces that help you create a look that feels uniquely yours.
+        </p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA Banner -->
+<section class="bg-white">
+  <div class="max-w-6xl mx-auto px-6 pb-20">
+    <div class="rounded-2xl bg-gold-dark px-8 py-14 text-center text-white">
+      <h2 class="text-3xl font-semibold">Your Perfect Piece Starts Here.</h2>
+      <p class="mx-auto mt-4 max-w-xl text-white/90">
+        We'd love to help you find your perfect piece. Tell us what you have in mind and we'll bring it to life.
+      </p>
+      <a href="#custom-order"
+         class="mt-8 inline-block rounded-full bg-white px-8 py-3 text-sm font-medium text-gold-dark hover:bg-ink hover:text-white">
+        Start a Custom Order
+      </a>
+    </div>
+  </div>
+</section>
+
+
+{% endblock %}
