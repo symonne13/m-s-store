@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,9 +21,7 @@
     tailwind.config = {
       theme: {
         extend: {
-          fontFamily: {
-            sans: ['Poppins', 'sans-serif'],
-          },
+          fontFamily: { sans: ['Poppins', 'sans-serif'] },
           colors: {
             gold: { DEFAULT: '#c8962c', light: '#e6c36a', dark: '#9a7014' },
             silver: '#b5b5b5',
@@ -34,39 +32,134 @@
       },
     }
   </script>
+
+  <!-- Fade-up animation -->
+  <style>
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.is-visible {
+      opacity: 1;
+      transform: none;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+  </style>
+  <noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
 </head>
 <body class="min-h-screen flex flex-col bg-white text-ink font-sans">
 
-  <!-- Navbar -->
-  <header class="bg-white">
-    <nav class="max-w-6xl mx-auto flex items-center justify-between px-4 py-3">
+  <!-- Navbar (sticky) -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur">
+    <nav class="max-w-6xl mx-auto flex items-center justify-between px-6 py-3 md:px-10">
 
-      <a href="{% url 'home' %}" class="flex items-center gap-3">
-        <img src="{% static 'images/logo.png' %}" alt="M's Jewellery Store logo" class="h-14 w-14 object-contain">
-        <span class="leading-tight">
-          <span class="block text-xl font-bold tracking-wide text-ink">M's Jewellery Store</span>
+      <a href="{% url 'home' %}#home" class="flex items-center gap-3">
+        <img src="{% static 'images/logo.png' %}" alt="M's Jewellery Store logo" class="h-12 w-12 object-contain">
+        <span class="hidden leading-tight sm:block">
+          <span class="block text-lg font-bold tracking-wide">M's Jewellery Store</span>
           <span class="block text-[10px] tracking-[0.4em] text-gold-dark">TIMELESS ELEGANCE</span>
         </span>
       </a>
 
-      <ul class="flex gap-6 text-sm font-medium">
-        <li><a href="{% url 'home' %}" class="hover:text-gold-dark">Home</a></li>
-        <li><a href="#" class="hover:text-gold-dark">Collections</a></li>
-        <li><a href="#" class="hover:text-gold-dark">Custom Order</a></li>
+      <!-- Desktop links -->
+      <ul class="hidden items-center gap-8 text-sm font-medium md:flex">
+        <li><a href="{% url 'home' %}#home" class="hover:text-gold-dark">Home</a></li>
+        <li><a href="{% url 'home' %}#about" class="hover:text-gold-dark">Our Story</a></li>
+        <li><a href="{% url 'home' %}#collections" class="hover:text-gold-dark">Collections</a></li>
+        <li><a href="{% url 'home' %}#custom-order" class="hover:text-gold-dark">Custom Order</a></li>
       </ul>
+
+      <!-- Mobile toggle -->
+      <button id="menu-btn" class="md:hidden" aria-label="Toggle menu">
+        <svg class="h-7 w-7" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/>
+        </svg>
+      </button>
     </nav>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden bg-white px-6 pb-6 md:hidden">
+      <a href="{% url 'home' %}#home" class="block py-3 text-sm font-medium">Home</a>
+      <a href="{% url 'home' %}#about" class="block py-3 text-sm font-medium">Our Story</a>
+      <a href="{% url 'home' %}#collections" class="block py-3 text-sm font-medium">Collections</a>
+      <a href="{% url 'home' %}#custom-order" class="block py-3 text-sm font-medium">Custom Order</a>
+    </div>
   </header>
 
   <!-- Page content -->
-  <main class="flex-grow max-w-6xl mx-auto w-full px-4 py-8">
+  <main class="flex-grow">
     {% block content %}
     {% endblock %}
   </main>
 
   <!-- Footer -->
-  <footer class="bg-pearl text-stone-600 text-center text-sm py-6">
-    &copy; 2026 M's Jewellery Store. All rights reserved.
+  <footer class="bg-ink text-stone-300">
+    <div class="max-w-6xl mx-auto grid gap-10 px-6 py-16 md:grid-cols-3 md:px-10">
+
+      <div>
+        <div class="flex items-center gap-3">
+          <img src="{% static 'images/logo.png' %}" alt="M's Jewellery Store logo" class="h-12 w-12 object-contain">
+          <h2 class="text-lg font-semibold text-white">M's Jewellery Store</h2>
+        </div>
+        <p class="mt-4 text-sm leading-relaxed text-stone-400">
+          Timeless elegance, made to shine. We'd love to help you find your perfect piece.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="text-xs font-semibold uppercase tracking-[0.25em] text-gold-light">Quick Links</h3>
+        <ul class="mt-5 space-y-3 text-sm">
+          <li><a href="{% url 'home' %}#home" class="hover:text-gold-light">Home</a></li>
+          <li><a href="{% url 'home' %}#about" class="hover:text-gold-light">Our Story</a></li>
+          <li><a href="{% url 'home' %}#collections" class="hover:text-gold-light">Collections</a></li>
+          <li><a href="{% url 'home' %}#custom-order" class="hover:text-gold-light">Custom Order</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-xs font-semibold uppercase tracking-[0.25em] text-gold-light">Get in Touch</h3>
+        <ul class="mt-5 space-y-3 text-sm">
+          <li>Phone: <a href="tel:+254725560621" class="hover:text-gold-light">0725560621</a></li>
+          <li>Email: <a href="mailto:mstore@gmail.com" class="hover:text-gold-light">mstore@gmail.com</a></li>
+          <li>Location: Kericho, Kenya</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="max-w-6xl mx-auto flex flex-col items-center justify-between gap-1 px-6 pb-8 text-xs text-stone-500 md:flex-row md:px-10">
+      <p>&copy; 2026 M's Jewellery Store. All rights reserved.</p>
+      <p>Crafted with elegance</p>
+    </div>
   </footer>
 
+  <script>
+    // Mobile menu
+    const btn = document.getElementById('menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.add('hidden')));
+
+    // Fade-up on scroll: every section's container and the footer containers
+    const items = document.querySelectorAll('main section > div:not(.absolute), footer > div');
+    items.forEach(el => el.classList.add('reveal'));
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      items.forEach(el => observer.observe(el));
+    } else {
+      items.forEach(el => el.classList.add('is-visible'));
+    }
+  </script>
 </body>
 </html>

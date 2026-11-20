@@ -4,29 +4,32 @@
 {% block content %}
 
 <!-- Hero -->
-<section id="home" class="scroll-mt-20 bg-pearl">
-  <div class="max-w-6xl mx-auto grid items-center gap-12 px-6 py-16 md:grid-cols-2 md:py-24">
+<section id="home" class="relative isolate flex min-h-[85vh] scroll-mt-20 items-center overflow-hidden">
 
-    <div>
-      <p class="text-xs font-medium tracking-[0.3em] text-gold-dark">TIMELESS BEAUTY · EVERYDAY LUXURY</p>
+  <!-- Background image -->
+  <img src="{% static 'images/set1.jpg' %}" alt="Elegant gold jewellery collection"
+       class="absolute inset-0 -z-10 h-full w-full object-cover object-center">
+
+  <!-- Dark layer so the text is readable -->
+  <div class="absolute inset-0 -z-10 bg-black/50"></div>
+
+  <div class="max-w-6xl mx-auto w-full px-6 py-20">
+    <div class="max-w-xl text-white">
+      <p class="text-xs font-medium tracking-[0.3em] text-gold-light">TIMELESS BEAUTY · EVERYDAY LUXURY</p>
       <h2 class="mt-5 text-4xl font-semibold leading-tight md:text-5xl">
         Jewellery That Makes Every Moment Shine
       </h2>
-      <p class="mt-5 max-w-md text-stone-600">
+      <p class="mt-5 text-white/90">
         Discover elegant pieces designed to celebrate your style, your story and your special moments.
       </p>
       <a href="#collections"
-         class="mt-8 inline-block rounded-full bg-gold-dark px-8 py-3 text-sm font-medium text-white hover:bg-ink">
+         class="mt-8 inline-block rounded-full bg-gold-dark px-8 py-3 text-sm font-medium text-white hover:bg-white hover:text-ink">
         Explore Collections
       </a>
     </div>
-
-    <img src="{% static 'images/set1.jpg' %}" alt="Elegant gold jewellery collection"
-         class="aspect-[4/3] w-full rounded-2xl object-cover">
-
   </div>
-</section>
 
+</section>
 <!-- Our Story -->
 <section id="about" class="scroll-mt-20 bg-pearl">
   <div class="max-w-3xl mx-auto px-6 py-20 text-center">
