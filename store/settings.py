@@ -27,6 +27,13 @@ SECRET_KEY = 'django-insecure-6lb+j4#@va3s)+6!2gubk^m7e0-2%=tr==6#(sgr=*pkm#xb4@
 DEBUG = True
 
 ALLOWED_HOSTS = []
+# DEBUG = False
+
+# ALLOWED_HOSTS = ['*']
+
+# CSRF_TRUSTED_ORIGINS = [
+#     "https://m's store-website.vercel.app",
+# ]
 
 
 # Application definition
@@ -121,6 +128,9 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
+
+MEDIA_URL = 'media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 # Email
 # https://docs.djangoproject.com/en/6.1/topics/email/#topic-email-configuration
