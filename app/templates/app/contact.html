@@ -1,0 +1,282 @@
+
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block title %}Contact Us | M's Jewellery Store{% endblock %}
+
+{% block content %}
+
+<!-- Contact Hero -->
+<section class="relative flex min-h-[380px] items-center justify-center overflow-hidden bg-ink px-6 py-24 text-center">
+
+    <!-- Background Image -->
+    <div class="absolute inset-0">
+        <img
+            src="{% static 'images/set1.jpg' %}"
+            alt="Elegant jewellery collection"
+            class="h-full w-full object-cover object-center"
+        >
+        <div class="absolute inset-0 bg-black/55"></div>
+    </div>
+
+    <!-- Hero Content -->
+    <div class="relative z-10 mx-auto max-w-3xl text-white">
+        <p class="text-xs font-medium tracking-[0.35em] text-[#F5D98B]">
+            WE'D LOVE TO HEAR FROM YOU
+        </p>
+
+        <h1 class="mt-5 text-4xl font-semibold md:text-6xl">
+            Get In Touch
+        </h1>
+
+        <p class="mx-auto mt-6 max-w-xl leading-relaxed text-white/90">
+            Have a question, need assistance or looking for something special?
+            We're here to help you find your perfect piece.
+        </p>
+
+        <a href="#contact-details"
+           class="mt-8 inline-block rounded-full border border-white/70 px-8 py-3 text-sm font-medium text-white transition hover:bg-white hover:text-ink">
+            Contact Us
+        </a>
+    </div>
+</section>
+
+
+<!-- Contact Section -->
+<section id="contact-details" class="bg-white px-6 py-16 md:py-20">
+    <div class="mx-auto grid max-w-6xl gap-12 lg:grid-cols-2">
+
+        <!-- Contact Form -->
+        <div>
+            <p class="text-xs font-medium tracking-[0.3em] text-gold-dark">
+                SEND US A MESSAGE
+            </p>
+
+            <h2 class="mt-3 text-3xl font-semibold text-ink">
+                How Can We Help You?
+            </h2>
+
+            <p class="mt-4 leading-relaxed text-stone-600">
+                Fill in the form below and we'll be happy to assist you.
+                Your message will be sent to us through WhatsApp.
+            </p>
+
+            <form id="contact-form" class="mt-8 space-y-6">
+
+                <div>
+                    <label for="email" class="mb-2 block text-sm font-medium text-ink">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        required
+                        placeholder="Enter your email address"
+                        class="w-full rounded-xl border border-stone-200 bg-pearl px-5 py-4 text-sm outline-none transition focus:border-gold-dark focus:ring-1 focus:ring-gold-dark"
+                    >
+                </div>
+
+                <div>
+                    <label for="phone" class="mb-2 block text-sm font-medium text-ink">
+                        Phone Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        required
+                        placeholder="e.g. 0725 560 621"
+                        class="w-full rounded-xl border border-stone-200 bg-pearl px-5 py-4 text-sm outline-none transition focus:border-gold-dark focus:ring-1 focus:ring-gold-dark"
+                    >
+                </div>
+
+                <div>
+                    <label for="message" class="mb-2 block text-sm font-medium text-ink">
+                        Your Message
+                    </label>
+
+                    <textarea
+                        id="message"
+                        name="message"
+                        rows="6"
+                        required
+                        placeholder="Tell us what you're looking for..."
+                        class="w-full resize-y rounded-xl border border-stone-200 bg-pearl px-5 py-4 text-sm outline-none transition focus:border-gold-dark focus:ring-1 focus:ring-gold-dark"
+                    ></textarea>
+                </div>
+
+                <button
+                    type="submit"
+                    class="flex w-full items-center justify-center gap-3 rounded-full bg-gradient-to-r from-[#F8E7B0] to-[#E9BD62] px-8 py-4 text-sm font-semibold text-[#302316] shadow-md transition hover:-translate-y-1 hover:shadow-lg">
+
+                    <svg viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5">
+                        <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.33 4.97L2.05 22l5.25-1.38a9.94 9.94 0 004.74 1.2h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.85 9.85 0 0012.04 2z"/>
+                    </svg>
+
+                    Send Us a Message
+                </button>
+
+                <p class="text-center text-xs text-stone-500">
+                    You'll be redirected to WhatsApp to send your enquiry.
+                </p>
+            </form>
+        </div>
+
+
+        <!-- Contact Information -->
+        <div class="rounded-2xl bg-pearl p-8 md:p-10">
+
+            <p class="text-xs font-medium tracking-[0.3em] text-gold-dark">
+                CONTACT INFORMATION
+            </p>
+
+            <h2 class="mt-3 text-3xl font-semibold text-ink">
+                Find Us
+            </h2>
+
+            <p class="mt-4 leading-relaxed text-stone-600">
+                Whether you're looking for everyday elegance or a special
+                jewellery piece, we're just a message away.
+            </p>
+
+            <!-- WhatsApp -->
+            <a href="https://wa.me/254725560621"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="mt-10 flex items-center gap-5 rounded-xl p-4 transition hover:bg-white">
+
+                <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-white text-[#25D366]">
+                    <svg viewBox="0 0 24 24" fill="currentColor" class="h-7 w-7">
+                        <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.33 4.97L2.05 22l5.25-1.38a9.94 9.94 0 004.74 1.2h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.85 9.85 0 0012.04 2z"/>
+                    </svg>
+                </div>
+
+                <div>
+                    <h3 class="font-semibold text-ink">WhatsApp</h3>
+                    <p class="mt-1 text-sm text-stone-600">0725 560 621</p>
+                    <p class="mt-1 text-xs text-gold-dark">Chat with us →</p>
+                </div>
+            </a>
+
+            <!-- Email -->
+            <a href="mailto:simonruth749@gmail.com"
+               class="flex items-center gap-5 rounded-xl p-4 transition hover:bg-white">
+
+                <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-white text-gold-dark">
+                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" class="h-7 w-7">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 7l9 6 9-6M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
+                </div>
+
+                <div>
+                    <h3 class="font-semibold text-ink">Email Us</h3>
+                    <p class="mt-1 text-sm text-stone-600">simonruth749@gmail.com</p>
+                    <p class="mt-1 text-xs text-gold-dark">Send us an email →</p>
+                </div>
+            </a>
+
+            <!-- Location -->
+            <a href="https://www.google.com/maps/search/?api=1&query=Kericho%2C+Kenya"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="flex items-center gap-5 rounded-xl p-4 transition hover:bg-white">
+
+                <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-white text-gold-dark">
+                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" class="h-7 w-7">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 21s7-5.5 7-12a7 7 0 10-14 0c0 6.5 7 12 7 12z"/>
+                        <circle cx="12" cy="9" r="2.5"/>
+                    </svg>
+                </div>
+
+                <div>
+                    <h3 class="font-semibold text-ink">Our Location</h3>
+                    <p class="mt-1 text-sm text-stone-600">Kericho, Kenya</p>
+                    <p class="mt-1 text-xs text-gold-dark">Find us on Google Maps →</p>
+                </div>
+            </a>
+
+            <!-- Phone -->
+            <a href="tel:+254725560621"
+               class="flex items-center gap-5 rounded-xl p-4 transition hover:bg-white">
+
+                <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-white text-gold-dark">
+                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" class="h-7 w-7">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106a1.125 1.125 0 00-1.173.417l-.97 1.293a1.125 1.125 0 01-1.21.38 12.05 12.05 0 01-7.189-7.189 1.125 1.125 0 01.38-1.21l1.293-.97c.376-.282.548-.75.417-1.173L6.917 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/>
+                    </svg>
+                </div>
+
+                <div>
+                    <h3 class="font-semibold text-ink">Call Us</h3>
+                    <p class="mt-1 text-sm text-stone-600">+254 725 560 621</p>
+                    <p class="mt-1 text-xs text-gold-dark">Give us a call →</p>
+                </div>
+            </a>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- Closing CTA Banner -->
+<section class="bg-white">
+    <div class="mx-auto max-w-6xl px-6 pb-20">
+        <div class="relative overflow-hidden rounded-2xl bg-gradient-to-r from-[#F8E7B0] to-[#E9BD62] px-8 py-14 text-center text-[#302316]">
+
+            <!-- Decorative Circles -->
+            <div class="pointer-events-none absolute -left-16 -top-16 h-56 w-56 rounded-full border border-white/50"></div>
+
+            <div class="pointer-events-none absolute -bottom-24 -right-12 h-72 w-72 rounded-full border border-white/50"></div>
+
+            <!-- Banner Content -->
+            <div class="relative z-10">
+                <h2 class="text-3xl font-semibold">
+                    Your Style, Your Story, Your Elegance.
+                </h2>
+
+                <p class="mx-auto mt-4 max-w-xl text-[#5E4A2C]">
+                    Every piece tells a story. Let us help you find one that is uniquely yours.
+                </p>
+
+                <a href="{% url 'collections' %}"
+                   class="mt-8 inline-block rounded-full bg-[#302316] px-8 py-3 text-sm font-medium text-white transition hover:bg-white hover:text-[#302316]">
+                    Explore Collections
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- WhatsApp Form Integration -->
+<script>
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const email = document.getElementById('email').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const message = document.getElementById('message').value.trim();
+
+        const whatsappMessage =
+`Hello M's Jewellery Store!
+
+I have an enquiry.
+
+Email: ${email}
+
+Phone: ${phone}
+
+Message:
+
+${message}`;
+
+        const whatsappURL =
+            'https://wa.me/254725560621?text=' +
+            encodeURIComponent(whatsappMessage);
+
+        window.open(whatsappURL, '_blank');
+    });
+</script>
+
+{% endblock %}

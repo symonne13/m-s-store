@@ -5,5 +5,5 @@ def home(request):
     return render(request, 'app/home.html')
 def collections(request):
     return render(request, 'app/collections.html')
-def customorder(request):
-    return render(request, 'app/customorder.html')
+def contact(request):
+    return render(request, 'app/contact.html')

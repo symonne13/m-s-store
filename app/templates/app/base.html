@@ -2,6 +2,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -75,16 +76,19 @@
     </noscript>
 
     {% block extra_head %}{% endblock %}
+
 </head>
 
 <body class="min-h-screen flex flex-col bg-white text-ink font-sans">
 
     <!-- Navbar -->
     <header class="sticky top-0 z-50 bg-white/95 backdrop-blur">
+
         <nav class="max-w-6xl mx-auto flex items-center justify-between px-6 py-3 md:px-10">
 
             <!-- Logo -->
             <a href="{% url 'home' %}#home" class="flex items-center gap-3">
+
                 <img src="{% static 'images/logo.png' %}"
                      alt="M's Jewellery Store logo"
                      class="h-12 w-12 object-contain">
@@ -93,14 +97,18 @@
                     <span class="block text-lg font-bold tracking-wide">
                         M's Jewellery Store
                     </span>
+
                     <span class="block text-[10px] tracking-[0.4em] text-gold-dark">
                         TIMELESS ELEGANCE
                     </span>
                 </span>
+
             </a>
+
 
             <!-- Desktop Navigation -->
             <ul class="hidden items-center gap-8 text-sm font-medium md:flex">
+
                 <li>
                     <a href="{% url 'home' %}#home" class="hover:text-gold-dark">
                         Home
@@ -120,11 +128,13 @@
                 </li>
 
                 <li>
-                    <a href="{% url 'customorder' %}" class="hover:text-gold-dark">
-                        Custom Order
+                    <a href="{% url 'contact' %}" class="hover:text-gold-dark">
+                        Contact Us
                     </a>
                 </li>
+
             </ul>
+
 
             <div class="flex items-center gap-4">
 
@@ -135,6 +145,7 @@
                         aria-label="Open cart">
 
                     <span class="relative">
+
                         <svg class="h-7 w-7"
                              fill="none"
                              stroke="currentColor"
@@ -147,15 +158,19 @@
 
                             <path stroke-linecap="round"
                                   d="M9 7a3 3 0 016 0"/>
+
                         </svg>
 
                         <span class="cart-count absolute -right-2 -top-2 flex h-5 w-5 scale-0 items-center justify-center rounded-full bg-gold-dark text-[10px] font-semibold text-white transition">
                             0
                         </span>
+
                     </span>
 
                     <span>Cart</span>
+
                 </button>
+
 
                 <!-- Mobile Menu Toggle -->
                 <button id="menu-btn"
@@ -171,36 +186,41 @@
 
                         <path stroke-linecap="round"
                               d="M4 7h16M4 12h16M4 17h16"/>
+
                     </svg>
+
                 </button>
 
             </div>
+
         </nav>
+
 
         <!-- Mobile Navigation -->
         <div id="mobile-menu" class="hidden bg-white px-6 pb-6">
 
             <a href="{% url 'home' %}#home"
-               class="block py-3 text-sm font-medium">
+               class="block py-3 text-sm font-medium hover:text-gold-dark">
                 Home
             </a>
 
             <a href="{% url 'home' %}#about"
-               class="block py-3 text-sm font-medium">
+               class="block py-3 text-sm font-medium hover:text-gold-dark">
                 Our Story
             </a>
 
             <a href="{% url 'collections' %}"
-               class="block py-3 text-sm font-medium">
+               class="block py-3 text-sm font-medium hover:text-gold-dark">
                 Collections
             </a>
 
-            <a href="{% url 'customorder' %}"
-               class="block py-3 text-sm font-medium">
-                Custom Order
+            <a href="{% url 'contact' %}"
+               class="block py-3 text-sm font-medium hover:text-gold-dark">
+                Contact Us
             </a>
 
         </div>
+
     </header>
 
 
@@ -209,12 +229,16 @@
          class="fixed inset-0 z-[80] hidden bg-black/50">
     </div>
 
+
     <!-- Cart Drawer -->
     <aside id="cart-drawer"
            class="fixed right-0 top-0 z-[90] flex h-full w-full max-w-md translate-x-full flex-col bg-white shadow-xl transition-transform duration-300">
 
         <div class="flex items-center justify-between px-6 py-5">
-            <h2 class="text-lg font-semibold">Your Cart</h2>
+
+            <h2 class="text-lg font-semibold">
+                Your Cart
+            </h2>
 
             <button type="button"
                     id="cart-close"
@@ -222,27 +246,34 @@
                     aria-label="Close cart">
                 &times;
             </button>
+
         </div>
+
 
         <div id="cart-items"
              class="flex-1 space-y-4 overflow-y-auto px-6">
         </div>
 
+
         <div class="bg-pearl px-6 py-5">
 
             <div class="flex items-center justify-between text-sm">
+
                 <span>Total</span>
 
                 <span id="cart-total"
                       class="text-lg font-semibold">
                     KSh 0
                 </span>
+
             </div>
 
             <button type="button"
                     id="checkout-btn"
                     class="mt-4 w-full rounded-full bg-gold-dark py-3 text-sm font-medium text-white hover:bg-ink disabled:cursor-not-allowed disabled:opacity-50">
+
                 Checkout
+
             </button>
 
             <p class="mt-3 text-center text-xs text-stone-500">
@@ -250,13 +281,16 @@
             </p>
 
         </div>
+
     </aside>
 
 
     <!-- Page Content -->
     <main class="flex-grow">
+
         {% block content %}
         {% endblock %}
+
     </main>
 
 
@@ -265,8 +299,10 @@
 
         <div class="max-w-6xl mx-auto grid gap-10 px-6 py-16 md:grid-cols-3 md:px-10">
 
+
             <!-- Brand -->
             <div>
+
                 <div class="flex items-center gap-3">
 
                     <img src="{% static 'images/logo.png' %}"
@@ -276,16 +312,19 @@
                     <h2 class="text-lg font-semibold text-white">
                         M's Jewellery Store
                     </h2>
+
                 </div>
 
                 <p class="mt-4 text-sm leading-relaxed text-stone-400">
                     Timeless elegance, made to shine. We'd love to help you find your perfect piece.
                 </p>
+
             </div>
 
 
             <!-- Quick Links -->
             <div>
+
                 <h3 class="text-xs font-semibold uppercase tracking-[0.25em] text-gold-light">
                     Quick Links
                 </h3>
@@ -314,18 +353,20 @@
                     </li>
 
                     <li>
-                        <a href="{% url 'customorder' %}"
+                        <a href="{% url 'contact' %}"
                            class="hover:text-gold-light">
-                            Custom Order
+                            Contact Us
                         </a>
                     </li>
 
                 </ul>
+
             </div>
 
 
-            <!-- Contact -->
+            <!-- Contact Information -->
             <div>
+
                 <h3 class="text-xs font-semibold uppercase tracking-[0.25em] text-gold-light">
                     Get in Touch
                 </h3>
@@ -334,14 +375,16 @@
 
                     <li>
                         Phone:
+
                         <a href="tel:+254725560621"
                            class="hover:text-gold-light">
-                            +254725560621
+                            +254 725 560 621
                         </a>
                     </li>
 
                     <li>
                         Email:
+
                         <a href="mailto:simonruth749@gmail.com"
                            class="hover:text-gold-light">
                             simonruth749@gmail.com
@@ -353,6 +396,7 @@
                     </li>
 
                 </ul>
+
             </div>
 
         </div>
@@ -361,29 +405,34 @@
         <!-- Copyright -->
         <div class="max-w-6xl mx-auto flex flex-col items-center justify-between gap-1 px-6 pb-8 text-xs text-stone-500 md:flex-row md:px-10">
 
-            <p>
-                &copy; 2026 M's Jewellery Store. All rights reserved.
+            <p><center>
+                &copy; 2026 M's Jewellery Store. All rights reserved.</center>
             </p>
 
         </div>
 
     </footer>
+
+
     <!-- Floating WhatsApp Button -->
-<a href="https://wa.me/254725560621?text=Hello%20M's%20Jewellery%20Store!%20I%20have%20an%20enquiry."
-   target="_blank"
-   rel="noopener noreferrer"
-   aria-label="Chat with us on WhatsApp"
-   class="fixed bottom-6 right-6 z-[100] flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-all duration-300 hover:scale-110 hover:bg-[#1ebe5d] md:h-16 md:w-16">
+    <a href="https://wa.me/254725560621?text=Hello%20M%27s%20Jewellery%20Store%21%20I%20have%20an%20enquiry."
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="Chat with us on WhatsApp"
+       title="Chat with us on WhatsApp"
+       class="fixed bottom-6 right-6 z-[100] flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-all duration-300 hover:scale-110 hover:bg-[#1ebe5d] md:h-16 md:w-16">
 
-    <svg xmlns="http://www.w3.org/2000/svg"
-         viewBox="0 0 24 24"
-         fill="currentColor"
-         class="h-8 w-8 md:h-9 md:w-9">
+        <svg xmlns="http://www.w3.org/2000/svg"
+             viewBox="0 0 24 24"
+             fill="currentColor"
+             class="h-8 w-8 md:h-9 md:w-9">
 
-        <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.33 4.97L2.05 22l5.25-1.38a9.94 9.94 0 004.74 1.2h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.85 9.85 0 0012.04 2zm0 18.14a8.24 8.24 0 01-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 01-1.26-4.37c0-4.55 3.7-8.25 8.26-8.25 2.2 0 4.27.86 5.83 2.42a8.2 8.2 0 012.42 5.84c0 4.55-3.7 8.25-8.26 8.25zm4.53-6.18c-.25-.13-1.47-.72-1.7-.8-.23-.08-.4-.13-.57.13-.17.25-.65.8-.8.97-.15.17-.3.19-.55.06-.25-.13-1.04-.38-1.98-1.2-.73-.65-1.22-1.45-1.36-1.7-.14-.25-.01-.39.11-.52.11-.11.25-.3.38-.44.13-.15.17-.25.25-.42.08-.17.04-.32-.02-.45-.06-.13-.57-1.37-.78-1.87-.2-.49-.41-.42-.57-.43h-.49c-.17 0-.44.06-.67.32-.23.25-.88.86-.88 2.1s.9 2.44 1.03 2.61c.13.17 1.77 2.7 4.29 3.79.6.26 1.07.42 1.44.54.61.19 1.17.16 1.61.1.49-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.29z"/>
-    </svg>
+            <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.33 4.97L2.05 22l5.25-1.38a9.94 9.94 0 004.74 1.2h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.85 9.85 0 0012.04 2zm0 18.14a8.24 8.24 0 01-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 01-1.26-4.37c0-4.55 3.7-8.25 8.26-8.25 2.2 0 4.27.86 5.83 2.42a8.2 8.2 0 012.42 5.84c0 4.55-3.7 8.25-8.26 8.25zm4.53-6.18c-.25-.13-1.47-.72-1.7-.8-.23-.08-.4-.13-.57.13-.17.25-.65.8-.8.97-.15.17-.3.19-.55.06-.25-.13-1.04-.38-1.98-1.2-.73-.65-1.22-1.45-1.36-1.7-.14-.25-.01-.39.11-.52.11-.11.25-.3.38-.44.13-.15.17-.25.25-.42.08-.17.04-.32-.02-.45-.06-.13-.57-1.37-.78-1.87-.2-.49-.41-.42-.57-.43h-.49c-.17 0-.44.06-.67.32-.23.25-.88.86-.88 2.1s.9 2.44 1.03 2.61c.13.17 1.77 2.7 4.29 3.79.6.26 1.07.42 1.44.54.61.19 1.17.16 1.61.1.49-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.29z"/>
 
-</a>
+        </svg>
+
+    </a>
+
 
     <!-- JavaScript -->
     <script>
