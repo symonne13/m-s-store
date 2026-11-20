@@ -24,9 +24,25 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-6lb+j4#@va3s)+6!2gubk^m7e0-2%=tr==6#(sgr=*pkm#xb4@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+SECRET_KEY = os.environ.get(
+    "DJANGO_SECRET_KEY",
+    "django-insecure-local-development-only"
+)
 
-ALLOWED_HOSTS = []
+DEBUG = os.environ.get("DJANGO_DEBUG", "True").lower() == "true"
+
+ALLOWED_HOSTS = [
+    "localhost",
+    "127.0.0.1",
+    ".vercel.app",
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://*.vercel.app",
+]
+# DEBUG = True
+
+# ALLOWED_HOSTS = []
 # DEBUG = False
 
 # ALLOWED_HOSTS = ['*']
@@ -128,6 +144,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'
