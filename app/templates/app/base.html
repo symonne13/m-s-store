@@ -437,7 +437,7 @@
 
     <!-- JavaScript -->
     <script>
-        window.STATIC_URL = "{% static '' %}";
+        window.STATIC_URL = "{% get_static_prefix %}";
     </script>
 
     <script src="{% static 'js/products.js' %}"></script>
