@@ -86,24 +86,27 @@
 
         <nav class="max-w-6xl mx-auto flex items-center justify-between px-6 py-3 md:px-10">
 
-            <!-- Logo -->
-            <a href="{% url 'home' %}#home" class="flex items-center gap-3">
+          
+<!-- Logo and Brand -->
+<a href="{% url 'home' %}#home"
+   class="flex min-w-0 items-center gap-2 sm:gap-3">
 
-                <img src="{% static 'images/logo.png' %}"
-                     alt="M's Jewellery Store logo"
-                     class="h-12 w-12 object-contain">
+    <img src="{% static 'images/logo.png' %}"
+         alt="M's Jewellery Store logo"
+         class="h-10 w-10 shrink-0 object-contain sm:h-12 sm:w-12">
 
-                <span class="hidden leading-tight sm:block">
-                    <span class="block text-lg font-bold tracking-wide">
-                        M's Jewellery Store
-                    </span>
+    <span class="block min-w-0 leading-tight">
+        <span class="block whitespace-nowrap text-sm font-bold tracking-tight sm:text-lg sm:tracking-wide">
+            M's Jewellery Store
+        </span>
 
-                    <span class="block text-[10px] tracking-[0.4em] text-gold-dark">
-                        TIMELESS ELEGANCE
-                    </span>
-                </span>
+        <span class="hidden text-[10px] tracking-[0.3em] text-gold-dark sm:block">
+            TIMELESS ELEGANCE
+        </span>
+    </span>
 
-            </a>
+</a>
+
 
 
             <!-- Desktop Navigation -->

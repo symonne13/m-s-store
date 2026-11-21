@@ -17,19 +17,19 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/6.1/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-6lb+j4#@va3s)+6!2gubk^m7e0-2%=tr==6#(sgr=*pkm#xb4@'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-SECRET_KEY = os.environ.get(
-    "DJANGO_SECRET_KEY",
-    "django-insecure-local-development-only"
-)
+# Quick-start development settings
 
 DEBUG = os.environ.get("DJANGO_DEBUG", "True").lower() == "true"
+
+SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
+
+if not SECRET_KEY:
+    if DEBUG:
+        SECRET_KEY = "django-insecure-local-development-only"
+    else:
+        raise ValueError("DJANGO_SECRET_KEY must be configured in production")
 
 ALLOWED_HOSTS = [
     "localhost",
@@ -40,16 +40,6 @@ ALLOWED_HOSTS = [
 CSRF_TRUSTED_ORIGINS = [
     "https://*.vercel.app",
 ]
-# DEBUG = True
-
-# ALLOWED_HOSTS = []
-# DEBUG = False
-
-# ALLOWED_HOSTS = ['*']
-
-# CSRF_TRUSTED_ORIGINS = [
-#     "https://m's store-website.vercel.app",
-# ]
 
 
 # Application definition
@@ -67,8 +57,10 @@ INSTALLED_APPS = [
 ]
 TAILWIND_APP_NAME = 'theme'
 
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -142,11 +134,25 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.1/howto/static-files/
 
-STATIC_URL = 'static/'
-STATICFILES_DIRS = [BASE_DIR / 'static']
+
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+]
+
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-MEDIA_URL = 'media/'
+STORAGES = {
+    "default": {
+        "BACKEND": "django.core.files.storage.FileSystemStorage",
+    },
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
+
+MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 # Email
