@@ -1,0 +1,32 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block title %}My Wishlist | M's Jewellery Store{% endblock %}
+
+{% block content %}
+
+<section class="min-h-[70vh] bg-pearl">
+    <div class="mx-auto max-w-6xl px-6 py-16 md:px-10">
+
+        <div class="text-center">
+            <p class="text-xs font-medium tracking-[0.3em] text-gold-dark">
+                SAVED WITH LOVE
+            </p>
+
+            <h1 class="mt-4 text-4xl font-semibold text-ink">
+                My Wishlist
+            </h1>
+
+            <p class="mt-4 text-stone-600">
+                Keep the pieces you love in one special place.
+            </p>
+        </div>
+
+        <div id="wishlist-grid"
+             class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

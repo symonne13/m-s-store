@@ -1,4 +1,4 @@
-
+﻿
 {% load static %}
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
@@ -122,11 +122,18 @@
                     </a>
                 </li>
 
-                <li>
-                    <a href="{% url 'collections' %}" class="hover:text-gold-dark">
-                        Collections
-                    </a>
-                </li>
+                    <li>
+    <a href="{% url 'collections' %}" class="hover:text-gold-dark">
+        Collections
+    </a>
+</li>
+
+<li>
+    <a href="{% url 'wishlist' %}" class="hover:text-gold-dark">
+        Wishlist
+        <span class="wishlist-count text-gold-dark">(0)</span>
+    </a>
+</li>
 
                 <li>
                     <a href="{% url 'contact' %}" class="hover:text-gold-dark">
@@ -210,10 +217,16 @@
                 Our Story
             </a>
 
-            <a href="{% url 'collections' %}"
-               class="block py-3 text-sm font-medium hover:text-gold-dark">
-                Collections
-            </a>
+           <a href="{% url 'collections' %}"
+   class="block py-3 text-sm font-medium hover:text-gold-dark">
+    Collections
+</a>
+
+<a href="{% url 'wishlist' %}"
+   class="block py-3 text-sm font-medium hover:text-gold-dark">
+    Wishlist
+    <span class="wishlist-count text-gold-dark">(0)</span>
+</a>
 
             <a href="{% url 'contact' %}"
                class="block py-3 text-sm font-medium hover:text-gold-dark">
@@ -339,12 +352,6 @@
                         </a>
                     </li>
 
-                    <li>
-                        <a href="{% url 'home' %}#about"
-                           class="hover:text-gold-light">
-                            Our Story
-                        </a>
-                    </li>
 
                     <li>
                         <a href="{% url 'collections' %}"
