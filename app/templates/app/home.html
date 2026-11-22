@@ -1,106 +1,206 @@
+
 {% extends 'app/base.html' %}
 {% load static %}
 
 {% block content %}
 
 <!-- Hero -->
-<section id="home" class="relative isolate flex min-h-[90vh] scroll-mt-20 items-center overflow-hidden">
+<section id="home" class="relative isolate flex min-h-[90vh] scroll-mt-20 items-center justify-center overflow-hidden">
 
-  <!-- Background image -->
-  <img src="{% static 'images/set1.jpg' %}" alt="Elegant gold jewellery collection"
+  <img src="{% static 'images/set1.jpg' %}"
+       alt="Elegant gold jewellery collection"
        class="absolute inset-0 -z-10 h-full w-full object-cover object-center">
 
-  <!-- Dark layer so the text is readable -->
-  <div class="absolute inset-0 -z-10 bg-black/50"></div>
+  <div class="absolute inset-0 -z-10 bg-black/55"></div>
 
-  <div class="max-w-6xl mx-auto w-full px-6 py-20">
-    <div class="max-w-xl text-white">
-      <p class="text-xs font-medium tracking-[0.3em] text-gold-light">TIMELESS BEAUTY · EVERYDAY LUXURY</p>
-      <h2 class="mt-5 text-4xl font-semibold leading-tight md:text-5xl">
-        Jewellery That Makes Every Moment Shine
-      </h2>
-      <p class="mt-5 text-white/90">
-        Discover elegant pieces designed to celebrate your style, your story and your special moments.
+  <div class="mx-auto w-full max-w-6xl px-6 py-24 text-center">
+    <div class="mx-auto max-w-4xl text-white">
+
+      <p class="text-xs font-medium tracking-[0.35em] text-gold-light">
+        TIMELESS BEAUTY · EVERYDAY LUXURY
       </p>
+
+      <h1 class="mt-6 text-5xl font-semibold leading-tight md:text-6xl lg:text-7xl">
+        Jewellery That Makes Every Moment Shine
+      </h1>
+
+      <p class="mx-auto mt-7 max-w-2xl text-base leading-relaxed text-white/90 md:text-lg">
+        Discover thoughtfully selected jewellery that celebrates individuality,
+        captures meaningful moments and adds a touch of timeless elegance
+        to every day.
+      </p>
+
       <a href="{% url 'collections' %}"
-         class="mt-8 inline-block rounded-full bg-gold-dark px-8 py-3 text-sm font-medium text-white hover:bg-white hover:text-ink">
+         class="mt-9 inline-block rounded-full bg-gold-dark px-9 py-4 text-sm font-medium text-white shadow-lg transition duration-300 hover:-translate-y-1 hover:bg-white hover:text-ink">
         Explore Collections
       </a>
+
     </div>
   </div>
-
 </section>
+
+
 <!-- Our Story -->
 <section id="about" class="scroll-mt-20 bg-pearl">
-  <div class="max-w-3xl mx-auto px-6 py-20 text-center">
-    <p class="text-xs font-medium tracking-[0.3em] text-gold-dark">OUR STORY</p>
-    <h2 class="mt-4 text-3xl font-semibold md:text-4xl">Beauty in Every Detail</h2>
-    <p class="mt-6 leading-relaxed text-stone-600">
-      At M's Jewellery Store, we believe that jewellery is more than an accessory. It is a reflection of
-      your personality, a celebration of special moments, and a timeless expression of elegance.
-    </p>
-    <p class="mt-4 leading-relaxed text-stone-600">
-      From everyday essentials to statement pieces, our collection is designed to help you shine with
-      confidence and style.
-    </p>
-  <a href="{% url 'collections' %}" class="mt-6 inline-block text-sm font-medium text-gold-dark hover:text-ink">
-      Discover Our Collections →
-    </a>
+  <div class="mx-auto max-w-6xl px-6 py-20 md:py-24">
+
+    <div class="grid items-center gap-12 md:grid-cols-2 md:gap-16">
+
+      <!-- Story image -->
+      <div class="relative">
+        <div class="overflow-hidden rounded-3xl shadow-lg">
+          <img src="{% static 'images/set1.jpg' %}"
+               alt="Beautiful jewellery from M's Jewellery Store"
+               class="h-[380px] w-full object-cover transition duration-700 hover:scale-105 md:h-[480px]">
+        </div>
+
+        <div class="absolute -bottom-5 -right-5 -z-0 h-28 w-28 rounded-full border border-gold-dark/30"></div>
+      </div>
+
+      <!-- Story content -->
+      <div class="relative z-10">
+        <p class="text-xs font-medium tracking-[0.3em] text-gold-dark">
+          OUR STORY
+        </p>
+
+        <h2 class="mt-4 text-3xl font-semibold leading-tight text-ink md:text-4xl">
+          Beauty in Every Detail
+        </h2>
+
+        <p class="mt-6 leading-relaxed text-stone-600">
+          At M's Jewellery Store, we believe that jewellery is more than
+          an accessory. It is a reflection of who you are, a reminder of
+          beautiful memories and a way to express your individuality.
+        </p>
+
+        <p class="mt-4 leading-relaxed text-stone-600">
+          Our passion lies in bringing together beautiful designs that
+          make everyday moments feel special. Whether you are treating
+          yourself or choosing a meaningful gift, we want every piece
+          to become part of your story.
+        </p>
+
+        <a href="{% url 'collections' %}"
+           class="mt-8 inline-flex items-center justify-center rounded-full bg-gold-dark px-8 py-3.5 text-sm font-medium text-white shadow-md transition duration-300 hover:-translate-y-1 hover:bg-ink">
+          Discover Our Collections
+          <span class="ml-2">→</span>
+        </a>
+      </div>
+
+    </div>
   </div>
 </section>
+
 
 <!-- The M's Experience -->
 <section class="bg-white">
-  <div class="max-w-6xl mx-auto px-6 py-20">
+  <div class="mx-auto max-w-6xl px-6 py-20 md:py-24">
 
-    <div class="max-w-2xl mx-auto text-center">
-      <p class="text-xs font-medium tracking-[0.3em] text-gold-dark">THE M'S EXPERIENCE</p>
-      <h2 class="mt-4 text-3xl font-semibold md:text-4xl">More Than Just Jewellery</h2>
-      <p class="mt-4 text-stone-600">Discover the little details that make every piece special.</p>
+    <div class="mx-auto max-w-2xl text-center">
+      <p class="text-xs font-medium tracking-[0.3em] text-gold-dark">
+        THE M'S EXPERIENCE
+      </p>
+
+      <h2 class="mt-4 text-3xl font-semibold text-ink md:text-4xl">
+        More Than Just Jewellery
+      </h2>
+
+      <p class="mt-4 leading-relaxed text-stone-600">
+        Discover the little details that make every piece special.
+      </p>
     </div>
 
-    <div class="mt-12 grid gap-6 md:grid-cols-3">
+    <div class="mt-14 grid gap-7 md:grid-cols-3">
 
-      <article class="rounded-2xl bg-pearl p-8">
-        <h3 class="text-lg font-semibold">Timeless Designs</h3>
-        <p class="mt-3 text-sm leading-relaxed text-stone-600">
-          Explore elegant styles that complement your personality and bring a touch of beauty to every occasion.
+      <article class="group rounded-3xl border border-gold-dark/10 bg-pearl p-8 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl md:p-9">
+        <div class="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-gold-dark/10 text-2xl text-gold-dark">
+          ✧
+        </div>
+
+        <h3 class="text-xl font-semibold text-ink">
+          Timeless Designs
+        </h3>
+
+        <p class="mt-4 text-sm leading-7 text-stone-600">
+          Explore elegant styles that complement your personality and
+          bring a touch of beauty to every occasion.
         </p>
       </article>
 
-      <article class="rounded-2xl bg-pearl p-8">
-        <h3 class="text-lg font-semibold">Special Moments</h3>
-        <p class="mt-3 text-sm leading-relaxed text-stone-600">
-          Find thoughtful jewellery gifts to celebrate birthdays, anniversaries and meaningful milestones.
+      <article class="group rounded-3xl border border-gold-dark/10 bg-pearl p-8 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl md:p-9">
+        <div class="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-gold-dark/10 text-2xl text-gold-dark">
+          ♡
+        </div>
+
+        <h3 class="text-xl font-semibold text-ink">
+          Special Moments
+        </h3>
+
+        <p class="mt-4 text-sm leading-7 text-stone-600">
+          Find thoughtful jewellery gifts to celebrate birthdays,
+          anniversaries and meaningful milestones.
         </p>
       </article>
 
-      <article class="rounded-2xl bg-pearl p-8">
-        <h3 class="text-lg font-semibold">Personal Style</h3>
-        <p class="mt-3 text-sm leading-relaxed text-stone-600">
-          Express yourself with pieces that help you create a look that feels uniquely yours.
+      <article class="group rounded-3xl border border-gold-dark/10 bg-pearl p-8 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl md:p-9">
+        <div class="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-gold-dark/10 text-2xl text-gold-dark">
+          ✨
+        </div>
+
+        <h3 class="text-xl font-semibold text-ink">
+          Personal Style
+        </h3>
+
+        <p class="mt-4 text-sm leading-7 text-stone-600">
+          Express yourself with pieces that help you create a look
+          that feels uniquely yours.
         </p>
       </article>
 
     </div>
   </div>
 </section>
+
 
 <!-- CTA Banner -->
 <section class="bg-white">
-  <div class="max-w-6xl mx-auto px-6 pb-20">
-    <div class="rounded-2xl bg-gold-dark px-8 py-14 text-center text-white">
-      <h2 class="text-3xl font-semibold">Your Perfect Piece Starts Here.</h2>
-      <p class="mx-auto mt-4 max-w-xl text-white/90">
-        We'd love to help you find your perfect piece. Tell us what you have in mind and we'll bring it to life.
-      </p>
-     <a href="{% url 'contact' %}"
-   class="mt-8 inline-block rounded-full bg-white px-8 py-3 text-sm font-medium text-gold-dark hover:bg-ink hover:text-white">
-    Contact Us
-</a>
+  <div class="mx-auto max-w-6xl px-6 pb-20 md:pb-24">
+
+    <div class="relative isolate overflow-hidden rounded-[2rem] bg-gold-dark px-7 py-16 text-center text-white shadow-lg md:px-16 md:py-20">
+
+      <!-- Decorative circles -->
+      <div class="absolute -left-16 -top-16 -z-10 h-64 w-64 rounded-full border border-white/20"></div>
+      <div class="absolute -left-6 -top-6 -z-10 h-44 w-44 rounded-full border border-white/20"></div>
+
+      <div class="absolute -bottom-24 -right-16 -z-10 h-72 w-72 rounded-full border border-white/20"></div>
+      <div class="absolute -bottom-12 -right-4 -z-10 h-48 w-48 rounded-full border border-white/20"></div>
+
+      <div class="absolute right-1/4 top-8 -z-10 h-12 w-12 rounded-full bg-white/10"></div>
+      <div class="absolute bottom-10 left-1/4 -z-10 h-6 w-6 rounded-full bg-white/15"></div>
+
+      <div class="relative mx-auto max-w-2xl">
+
+        <p class="text-xs font-medium tracking-[0.3em] text-white/80">
+          A LITTLE SOMETHING SPECIAL
+        </p>
+
+        <h2 class="mt-4 text-3xl font-semibold leading-tight md:text-4xl">
+          Your Perfect Piece Starts Here.
+        </h2>
+
+        <p class="mx-auto mt-5 max-w-xl leading-relaxed text-white/90">
+          We'd love to help you find your perfect piece. Tell us what
+          you have in mind and we'll bring it to life.
+        </p>
+
+        <a href="{% url 'contact' %}"
+           class="mt-9 inline-block rounded-full bg-white px-9 py-4 text-sm font-semibold text-gold-dark shadow-md transition duration-300 hover:-translate-y-1 hover:bg-ink hover:text-white">
+          Contact Us
+        </a>
+
+      </div>
     </div>
   </div>
 </section>
-
 
 {% endblock %}
